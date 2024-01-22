@@ -20,6 +20,11 @@ TGP tries to achieve reliability through the means of decentralization.
 Specifically, networks are formed of at minimum one server, also known as a **node**.
 Nodes in TGP are for the most parts transparent to the Client, as the client only has to decide to which node of a network it wants to connect.
 
+Nodes use the Raft algorithm for consensus.
+Global configuration and room information is broadcast & preserved as a MLS channel where nodes act as user inside.
+Raft is required for commits, as only admin nodes can commit, the leadership role is exclusive to admin nodes.
+Any changes must be proposed to the leader by the other nodes.
+
 #### Requirements and limitations
 - Nodes trust each other, this trust must be established cryptographically
 - Nodes must be able to communicate securely over the internet as they may be spread beyond the limits of a local network
